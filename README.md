@@ -1,4 +1,6 @@
-firefly
+
+Firefly
 =======
 
-Simple javascript that mimicks fireflies 
+Simple javascript that mimicks fireflies, use at your own will
+
