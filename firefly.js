@@ -23,13 +23,13 @@ function run()
 	 Fly.prototype.paint = function ()
 	 {
       // Randomize the direction
-      var tmp = this.x + Math.floor((Math.random()*(2+2+1)+-2));
+      var tmp = this.x + Math.floor((Math.random()*(2+2+1)-2));
       if( tmp > 0 && tmp < xMax ) this.x = tmp;
 
-      tmp = this.y + Math.floor((Math.random()*(2+2+1)+-2));
+      tmp = this.y + Math.floor((Math.random()*(2+2+1)-2));
       if( tmp > 0 && tmp < yMax ) this.y = tmp;
 
-      tmp = this.z + Math.floor((Math.random()*(10+10+1)+-10));
+      tmp = this.z + Math.floor((Math.random()*(10+10+1)-10));
       if( tmp > 0 && tmp < zMax ) this.z = tmp;
 
       //  blinks every x times 
