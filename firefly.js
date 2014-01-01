@@ -1,8 +1,8 @@
 
 // Globals
 var 
-  xMax = 1920, 
-  yMax = 1080,
+  xMax = 300, 
+  yMax = 300,
   zMax = 300,
   flies = null,
   ctx = null
@@ -67,7 +67,7 @@ function run()
       ctx.lineTo(this.x, this.y-bodyStartOffset); 
 
       // blink once in a while 
-      if( this.blink % 30 == 0 )
+      if( this.blink % 75 == 0 )
         ctx.fill();
 
       // Finish off the body      
@@ -95,6 +95,11 @@ function run()
       alert(this.paint);
     };
 	
+    // Get a hold of the context 
+    ctx = document.getElementById('scene').getContext('2d');
+    xMax = ctx.canvas.width  = window.innerWidth-25;
+    yMax = ctx.canvas.height = window.innerHeight-25;
+
     // create flies
     flies = new Array();
     for (var i = 0; i < 50; i++)
@@ -105,8 +110,7 @@ function run()
       flies[i].z = (Math.random()*zMax);
     }
 
-    // Get a hold of the context 
-    ctx = document.getElementById('scene').getContext('2d');
+    // 
     renderFrame();
   }
 
