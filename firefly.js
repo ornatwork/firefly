@@ -4,6 +4,7 @@ var
   xMax = 300, 
   yMax = 300,
   zMax = 300,
+  collideZone = 20;
   flies = null,
   ctx = null
   
@@ -35,9 +36,26 @@ function run()
       //  blinks every x times 
       this.blink = Math.floor((Math.random()*300));
 
+      // Loop the flies from the array for collection detection
+      var collision = false;
+      for (var i = 0; i < flies.length; i++) 
+      {
+        // Can't collide with itself
+        if( flies[i] != this )
+          if( flies[i].x - this.x > -collideZone && flies[i].x - this.x < collideZone &&
+              flies[i].y - this.y > -collideZone && flies[i].y - this.y < collideZone &&
+              flies[i].z - this.z > -collideZone && flies[i].z - this.z < collideZone )
+                collision = true
+      }
+
       //  Begin and set color, only using green, both outline and fill
       ctx.beginPath();
-      ctx.strokeStyle = ctx.fillStyle = '#00CC00';
+      // Collition detected, then red, otherwise green
+      if( collision == true )
+        ctx.strokeStyle = ctx.fillStyle = '#CC0000';
+      else
+        ctx.strokeStyle = ctx.fillStyle = '#00CC00';
+      
       // Size is portional to dept
       var size = (this.z / 10);
 
