@@ -24,13 +24,13 @@ function run()
 	 Fly.prototype.paint = function ()
 	 {
       // Randomize the direction
-      var tmp = this.x + Math.floor((Math.random()*(2+2+1)-2));
+      var tmp = this.x + Math.floor((Math.random()*5)-2);
       if( tmp > 0 && tmp < xMax ) this.x = tmp;
 
-      tmp = this.y + Math.floor((Math.random()*(2+2+1)-2));
+      tmp = this.y + Math.floor((Math.random()*5)-2);
       if( tmp > 0 && tmp < yMax ) this.y = tmp;
 
-      tmp = this.z + Math.floor((Math.random()*(10+10+1)-10));
+      tmp = this.z + Math.floor((Math.random()*21)-10);
       if( tmp > 0 && tmp < zMax ) this.z = tmp;
 
       //  blinks every x times
@@ -69,7 +69,6 @@ function run()
       ctx.arc( this.x, this.y, size,
             Math.PI * 0.9, Math.PI * 1.1 );
       ctx.lineTo(this.x, this.y);
-
       // Right wing
       ctx.moveTo(this.x, this.y);
       ctx.arc( this.x, this.y, size,
@@ -147,7 +146,7 @@ function run()
     for (var i = 0; i < flies.length; i++)
       flies[i].paint();
 
-    // Call me
-    window.setTimeout(renderFrame, 1000 / 50);
+    // Call me every
+    window.setTimeout(renderFrame, 20);
   }
 
